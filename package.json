@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "sass": "^1.55.0"
+  },
+  "name": "front-end-fisheye",
+  "description": "Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch assets/sass/main.scss:./assets/css/scss.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dikeys/fisheye.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dikeys/fisheye/issues"
+  },
+  "homepage": "https://github.com/dikeys/fisheye#readme"
+}
