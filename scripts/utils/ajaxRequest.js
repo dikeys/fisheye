@@ -1,5 +1,12 @@
 async function ajaxGet(url) {
-  fetch(url, myInit).then((response) => console.log(response));
+  try {
+    const data = await fetch(url);
+    if (data.ok) {
+      return await data.json();
+    }
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 export default ajaxGet;
