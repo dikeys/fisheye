@@ -1,7 +1,7 @@
 import ajaxGet from "../utils/ajaxRequest";
 import { Photographer } from "../factories/photographer";
 
-export default class PhotographerApi {
+export class PhotographerApi {
   #url;
 
   constructor(url) {
@@ -11,5 +11,14 @@ export default class PhotographerApi {
   async allPhotographers() {
     const photographers = await ajaxGet(this.#url);
     return photographers.photographers;
+  }
+
+  async findPhotographerById(id) {
+    let photographers = await this.allPhotographers();
+    for (let photographer of photographers) {
+      if (photographer.id === parseInt(id)) {
+        return photographer;
+      }
+    }
   }
 }

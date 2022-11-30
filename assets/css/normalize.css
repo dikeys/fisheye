@@ -75,6 +75,13 @@ pre {
 
 a {
   background-color: transparent;
+  text-decoration: none;
+  color: black;
+}
+
+a:active,
+a:visited {
+  color: black;
 }
 
 /**

@@ -1,0 +1,40 @@
+.photographer-section {
+  justify-self: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: 400;
+  flex-wrap: wrap;
+
+  &__card {
+    text-align: center;
+    width: 526px;
+    height: 358px;
+  }
+  &__img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+  &__name {
+    font-size: 36px;
+    line-height: 46.87px;
+    color: $primary;
+  }
+
+  &__location {
+    font-size: 13px;
+    line-height: 16.93px;
+    color: $secondary;
+    margin-bottom: 3px;
+  }
+  &__tagline {
+    font-size: 10px;
+    line-height: 13.02px;
+  }
+  &__price {
+    font-size: 9px;
+    line-height: 11.72px;
+  }
+}

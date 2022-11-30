@@ -14,36 +14,66 @@ body {
   box-sizing: border-box;
 }
 
+#main {
+  margin-top: 65px;
+}
+
+/* dm-sans-regular - latin */
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/dm-sans-v11-latin-regular.eot"); /* IE9 Compat Modes */
+  src: local(""), url("../fonts/dm-sans-v11-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/dm-sans-v11-latin-regular.woff2") format("woff2"), url("../fonts/dm-sans-v11-latin-regular.woff") format("woff"), url("../fonts/dm-sans-v11-latin-regular.ttf") format("truetype"), url("../fonts/dm-sans-v11-latin-regular.svg#DMSans") format("svg"); /* Legacy iOS */
+}
 body {
-  font-family: "Roboto", sans-serif;
-  font-size: 2rem;
-  font-weight: 100;
-  line-height: 1.7;
+  font-family: DM Sans, sans-serif;
 }
 
-h1 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 900;
-  font-size: 5rem;
-  font-style: italic;
+.header {
+  margin-right: 100px;
+}
+.header h1 {
+  font-size: 36px;
 }
 
-textarea {
-  font-family: "Roboto", sans-serif;
-  font-weight: 100;
-  font-size: 2rem;
+.photographer-section {
+  justify-self: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: 400;
+  flex-wrap: wrap;
 }
-
-button {
-  font-family: "Roboto", sans-serif;
-  font-weight: 900;
-  font-style: italic;
-  font-size: 2.75rem;
+.photographer-section__card {
+  text-align: center;
+  width: 526px;
+  height: 358px;
 }
-
-.test {
-  color: red;
-  font: 1em sans-serif;
+.photographer-section__img {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+.photographer-section__name {
+  font-size: 36px;
+  line-height: 46.87px;
+  color: #d3573c;
+}
+.photographer-section__location {
+  font-size: 13px;
+  line-height: 16.93px;
+  color: #901c1c;
+  margin-bottom: 3px;
+}
+.photographer-section__tagline {
+  font-size: 10px;
+  line-height: 13.02px;
+}
+.photographer-section__price {
+  font-size: 9px;
+  line-height: 11.72px;
 }
 
 /*# sourceMappingURL=scss.css.map */

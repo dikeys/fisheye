@@ -5,7 +5,7 @@ async function ajaxGet(url) {
       return await data.json();
     }
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 }
 
