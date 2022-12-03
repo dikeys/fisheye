@@ -30,6 +30,67 @@ body {
   font-family: DM Sans, sans-serif;
 }
 
+.btn-m {
+  padding: 22px 11px;
+}
+.btn-m--bg-primary {
+  background-color: #d3573c;
+}
+.btn-m--bg-secondary {
+  background-color: #901c1c;
+}
+.btn-m--bg-otherText {
+  background-color: #525252;
+}
+.btn-m--bg-white {
+  background-color: white;
+}
+.btn-m--rounded-sm {
+  border-radius: 5px;
+}
+.btn-m--rounded-md {
+  border-radius: 17px;
+}
+.btn-m--rounded-xl {
+  border-radius: 67px;
+}
+.btn-m--rounded-circle {
+  border-radius: 50%;
+}
+.btn-m--color-primary {
+  color: #d3573c;
+}
+.btn-m--color-secondary {
+  color: #901c1c;
+}
+.btn-m--color-otherText {
+  color: #525252;
+}
+.btn-m--color-white {
+  color: white;
+}
+
+.modal__background {
+  position: absolute;
+  display: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.5;
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+}
+.modal__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+  height: 80vh;
+  color: white;
+}
+
 .header {
   margin-right: 100px;
   display: flex;
@@ -88,6 +149,79 @@ h1 {
 .photographer-section__price {
   font-size: 9px;
   line-height: 11.72px;
+}
+
+.profil__information {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 50.66px 100px;
+}
+.profil__name {
+  color: #d3573c;
+  font-size: 64px;
+}
+.profil__location {
+  font-size: 24px;
+  line-height: 31.25px;
+  color: #901c1c;
+  margin-top: 16px;
+  margin-bottom: 19px;
+}
+.profil__expression {
+  font-size: 18px;
+  line-height: 23.44px;
+  color: #525252;
+}
+.profil__button {
+  border: none;
+  font-size: 20px;
+  margin-left: 127px;
+}
+.profil__button:hover {
+  cursor: pointer;
+}
+.profil__img {
+  margin-left: 285px;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.main-sort {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-left: 97px;
+}
+.main-sort__text {
+  font-size: 18px;
+}
+.main-sort__popularity {
+  margin-left: 25px;
+  color: white;
+  background-color: #901c1c;
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+}
+.main-sort__popularity__option {
+  border-top: 1px solid gray;
+  background-color: #901c1c;
+}
+.main-sort__popularity__option::after {
+  content: "--";
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-top: 1px solid gray;
+  color: green;
+}
+
+option:hover {
+  background-color: #901c1c;
 }
 
 /*# sourceMappingURL=style.css.map */

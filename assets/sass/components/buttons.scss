@@ -1,2 +1,21 @@
-.btn {
+.btn-m {
+    padding: 22px 11px;
+
+    @each $colour, $hex in $colors {
+        &--bg-#{"" + $colour} {
+            background-color: $hex;
+        }
+    }
+
+    @each $type, $size in $rounded-sizes {
+        &--rounded-#{"" + $type} {
+            border-radius: $size;
+        }
+    }
+
+    @each $colour, $hex in $colors {
+        &--color-#{"" + $colour} {
+            color: $hex;
+        }
+    }
 }

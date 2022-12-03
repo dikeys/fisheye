@@ -1,19 +1,38 @@
 export class Photographer {
-  #name;
-  #city;
-  #country;
-  #tagline;
-  #price;
-  #portrait;
+    #name;
+    #city;
+    #country;
+    #tagline;
+    #price;
+    #portrait;
 
-  constructor(data) {
-    this.#name = data.name;
-    this.#city = data.city;
-    this.#country = data.country;
-    this.#tagline = data.tagline;
-    this.#price = data.price;
-    this.#portrait = data.portrait;
-  }
+    constructor(data) {
+        this.#name = data.name;
+        this.#city = data.city;
+        this.#country = data.country;
+        this.#tagline = data.tagline;
+        this.#price = data.price;
+        this.#portrait = data.portrait;
+    }
+
+    get name() {
+        return this.#name;
+    }
+    get city() {
+        return this.#city;
+    }
+    get country() {
+        return this.#country;
+    }
+    get tagline() {
+        return this.#tagline;
+    }
+    get price() {
+        return this.#price;
+    }
+    get portrait() {
+        return this.#portrait;
+    }
 }
 
 // function photographerFactory(data) {
