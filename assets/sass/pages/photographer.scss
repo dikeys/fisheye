@@ -72,6 +72,28 @@
     }
 }
 
-option:hover {
-    background-color: $secondary;
+.photographer-media {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 100px;
+    margin-top: 58px;
+    &__container {
+        margin-left: 95px;
+        margin-bottom: 30px;
+        border-radius: 5px;
+    }
+    &__img {
+        width: 350px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+    &__container-tagline {
+        display: flex;
+        color: $secondary;
+    }
+
+    &__tagline {
+    }
 }

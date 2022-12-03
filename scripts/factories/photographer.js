@@ -1,4 +1,5 @@
 export class Photographer {
+    #id;
     #name;
     #city;
     #country;
@@ -7,6 +8,7 @@ export class Photographer {
     #portrait;
 
     constructor(data) {
+        this.#id = data.id;
         this.#name = data.name;
         this.#city = data.city;
         this.#country = data.country;
@@ -15,9 +17,14 @@ export class Photographer {
         this.#portrait = data.portrait;
     }
 
+    get id() {
+        return this.#id;
+    }
+
     get name() {
         return this.#name;
     }
+
     get city() {
         return this.#city;
     }

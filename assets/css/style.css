@@ -220,8 +220,27 @@ h1 {
   color: green;
 }
 
-option:hover {
-  background-color: #901c1c;
+.photographer-media {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 100px;
+  margin-top: 58px;
+}
+.photographer-media__container {
+  margin-left: 95px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+.photographer-media__img {
+  width: 350px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.photographer-media__container-tagline {
+  display: flex;
+  color: #901c1c;
 }
 
 /*# sourceMappingURL=style.css.map */

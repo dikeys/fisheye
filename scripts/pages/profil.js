@@ -14,16 +14,18 @@ async function init() {
     let photographerData = await dataFromApiPhotographer.findPhotographerById(
         urlSearch.get("id")
     );
-    console.log(
-        dataFromApiPhotographer.findPhotographerById(urlSearch.get("id"))
-    );
-
     let photographer = new Photographer(photographerData);
     let photographerCreate = new PhotographerCreate(photographer);
     photographerCreate.userProfilInformation();
-    let modal = new Modal();
-    modal.modalCreate();
-    photographerCreate.photographerMedia();
+    // let modal = new Modal();
+    // modal.modalCreate();
+
+    let mediaOfPhotographer =
+        await dataFromApiPhotographer.findPhotographerMediaById(
+            urlSearch.get("id")
+        );
+   
+    photographerCreate.photographerMedia(mediaOfPhotographer, photographerData.name);
 }
 
 init();

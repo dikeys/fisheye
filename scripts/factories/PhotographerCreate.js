@@ -122,7 +122,28 @@ export class PhotographerCreate {
         mainSection.appendChild(divSort);
     }
 
-    photographerMedia() {
-        console.log("ok");
+    photographerMedia(ArrayMediaPhotographer, photographerName) {
+        let mediaContainer = document.querySelector(".photographer-media");
+        ArrayMediaPhotographer.forEach((element) => {
+            let article = document.createElement("article");
+            article.classList.add("photographer-media__container");
+
+            let imgMedia = document.createElement("img");
+            imgMedia.classList.add("photographer-media__img");
+            imgMedia.src = `../assets/images/media/${
+                photographerName.split(" ")[0]
+            }/${element.image}`;
+
+            let containerTagline = document.createElement("div");
+            containerTagline.classList.add(
+                "photographer-media__container-tagline"
+            );
+            let tagline = document.createElement("p");
+            tagline.classList.add("photographer-media__tagline");
+            tagline.textContent = element.tagline;
+
+            article.appendChild(imgMedia);
+            mediaContainer.appendChild(article);
+        });
     }
 }
