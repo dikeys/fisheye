@@ -124,7 +124,12 @@ export class PhotographerCreate {
 
     photographerMedia(ArrayMediaPhotographer, photographerName) {
         let mediaContainer = document.querySelector(".photographer-media");
+        // let items = ArrayMediaPhotographer.sort((a, b) => {
+        //     return a.image > b.image;
+        // });
+
         ArrayMediaPhotographer.forEach((element) => {
+            console.log(element);
             let article = document.createElement("article");
             article.classList.add("photographer-media__container");
 
@@ -134,15 +139,25 @@ export class PhotographerCreate {
                 photographerName.split(" ")[0]
             }/${element.image}`;
 
-            let containerTagline = document.createElement("div");
-            containerTagline.classList.add(
-                "photographer-media__container-tagline"
-            );
-            let tagline = document.createElement("p");
-            tagline.classList.add("photographer-media__tagline");
-            tagline.textContent = element.tagline;
+            let containerTitle = document.createElement("div");
+            containerTitle.classList.add("photographer-media__container-title");
+            let title = document.createElement("p");
+            title.classList.add("photographer-media__title");
+            title.textContent = element.title;
+
+            let divHeart = document.createElement("div");
+            let heart = document.createElement("img");
+            let nbLike = document.createElement("p");
+            nbLike.textContent = element.likes;
+
+            divHeart.appendChild(nbLike);
+            divHeart.appendChild(heart);
+
+            containerTitle.appendChild(title);
+            containerTitle.appendChild(divHeart);
 
             article.appendChild(imgMedia);
+            article.appendChild(containerTitle);
             mediaContainer.appendChild(article);
         });
     }
