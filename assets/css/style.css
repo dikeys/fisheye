@@ -18,6 +18,14 @@ body {
   margin-top: 65px;
 }
 
+.hidden {
+  display: none;
+}
+
+.display {
+  display: block !important;
+}
+
 /* dm-sans-regular - latin */
 @font-face {
   font-family: "DM Sans";
@@ -32,6 +40,7 @@ body {
 
 .btn-m {
   padding: 22px 11px;
+  border: none;
 }
 .btn-m--bg-primary {
   background-color: #d3573c;
@@ -70,25 +79,22 @@ body {
   color: white;
 }
 
-.modal__background {
-  position: absolute;
-  display: none;
+.modal {
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  opacity: 0.5;
-  background-color: black;
+  background-color: rgba(196, 196, 196, 0.4);
   width: 100vw;
   height: 100vh;
-}
-.modal__content {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
-  width: 80vw;
-  height: 80vh;
-  color: white;
+}
+
+#close {
+  cursor: pointer;
 }
 
 .header {
@@ -151,11 +157,51 @@ h1 {
   line-height: 11.72px;
 }
 
+.contact__content {
+  padding: 15px 35px 38px 35px;
+  background: #d3573c;
+  border-radius: 5px;
+  width: 669px;
+}
+.contact__heading {
+  display: flex;
+  font-weight: 400;
+}
+.contact__heading h1 {
+  font-size: 54px;
+  line-height: 83.33px;
+  color: black;
+  margin-right: 108px;
+}
+.contact__label {
+  font-size: 36px;
+  line-height: 46.87px;
+  color: #312e2e;
+}
+.contact__input {
+  width: 100%;
+  padding: 13px;
+  border-radius: 5px;
+  border: none;
+  font-size: 36px;
+}
+.contact__textArea {
+  height: 170px;
+}
+.contact__button {
+  margin-top: 26px;
+  width: 170px;
+  font-size: 18px;
+  line-height: 23.44px;
+}
+
 .profil__information {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding: 56px 50px;
   margin: 50.66px 100px;
+  background: #fafafa;
 }
 .profil__name {
   color: #d3573c;
@@ -176,7 +222,7 @@ h1 {
 .profil__button {
   border: none;
   font-size: 20px;
-  margin-left: 127px;
+  margin-left: 112px;
 }
 .profil__button:hover {
   cursor: pointer;
@@ -195,40 +241,66 @@ h1 {
   justify-content: start;
   align-items: center;
   margin-left: 97px;
+  position: relative;
 }
 .main-sort__text {
   font-size: 18px;
 }
-.main-sort__popularity {
+.main-sort__select {
+  position: absolute;
+  top: -25px;
+  left: 119px;
   margin-left: 25px;
   color: white;
   background-color: #901c1c;
   border: none;
   padding: 10px;
   font-size: 18px;
+  list-style: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
-.main-sort__popularity__option {
+.main-sort__select__popularity {
+  padding: 13px 19px 13px 10px;
+}
+.main-sort__select__popularity::selection {
+  background: #901c1c;
+}
+.main-sort__select__select::selection, .main-sort__select__icon::selection, .main-sort__select__option::selection {
+  background: #901c1c;
+}
+.main-sort__select__icon {
+  display: inline-block;
+  transform: rotate(-90deg);
+  font-size: 31px;
+  margin-left: 26px;
+  padding-right: 4px;
+}
+.main-sort__select__rotate {
+  transform: rotate(90deg);
+}
+.main-sort__select__option {
   border-top: 1px solid gray;
   background-color: #901c1c;
+  border-top: 1px white solid;
+  display: none;
 }
-.main-sort__popularity__option::after {
-  content: "--";
-  display: block;
-  width: 40px;
-  height: 40px;
-  border-top: 1px solid gray;
-  color: green;
+.main-sort__select li:not(:first-child) {
+  padding: 24px 60px 14px 20px;
+}
+.main-sort__select__option::selection {
+  background: #901c1c;
 }
 
 .photographer-media {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   padding: 0 100px;
   margin-top: 58px;
+  justify-content: space-between;
+  gap: 95px;
 }
 .photographer-media__container {
-  margin-left: 95px;
   margin-bottom: 30px;
   border-radius: 5px;
 }
@@ -245,6 +317,32 @@ h1 {
   margin-top: 10px;
   font-size: 24px;
   line-height: 31.25px;
+}
+.photographer-media__div-heart {
+  display: flex;
+  color: #901c1c;
+}
+.photographer-media__heart {
+  color: #901c1c;
+  margin-left: 6.37px;
+}
+.photographer-media__heart:hover {
+  cursor: pointer;
+}
+
+.price-day {
+  position: fixed;
+  bottom: 0;
+  width: 375px;
+  display: flex;
+  justify-content: space-around;
+  background-color: #d3573c;
+  font-size: 24px;
+  line-height: 31.25px;
+  padding: 21px 34px 16px 31px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  right: 36px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,42 @@
+.contact {
+    &__content {
+        padding: 15px 35px 38px 35px;
+        background: $primary;
+        border-radius: 5px;
+        width: 669px;
+    }
+    &__heading {
+        display: flex;
+        font-weight: 400;
+
+        h1 {
+            font-size: 54px;
+            line-height: 83.33px;
+            color: black;
+            margin-right: 108px;
+        }
+    }
+    &__label {
+        font-size: 36px;
+        line-height: 46.87px;
+        color: #312e2e;
+    }
+    &__input {
+        width: 100%;
+        padding: 13px;
+        border-radius: 5px;
+        border: none;
+        font-size: 36px;
+    }
+
+    &__textArea {
+        height: 170px;
+    }
+
+    &__button {
+        margin-top: 26px;
+        width: 170px;
+        font-size: 18px;
+        line-height: 23.44px;
+    }
+}

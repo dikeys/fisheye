@@ -1,6 +1,6 @@
 .btn-m {
     padding: 22px 11px;
-
+    border :none;
     @each $colour, $hex in $colors {
         &--bg-#{"" + $colour} {
             background-color: $hex;

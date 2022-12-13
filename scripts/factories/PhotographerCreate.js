@@ -1,7 +1,6 @@
-import { Modal } from "./Modal";
-
 export class PhotographerCreate {
     #photographer;
+    #totalLike;
 
     constructor(Photographer) {
         this.#photographer = Photographer;
@@ -53,7 +52,7 @@ export class PhotographerCreate {
         profilSection.classList.add("profil__information");
 
         let divName = document.createElement("div");
-        let pName = document.createElement("p");
+        let pName = document.createElement("h1");
         pName.classList.add("profil__name");
         pName.textContent = this.#photographer.name;
 
@@ -89,21 +88,24 @@ export class PhotographerCreate {
         sortText.classList.add("main-sort__text");
         sortText.textContent = "Trier par :";
 
-        let selectPopularity = document.createElement("select");
-        selectPopularity.classList.add("main-sort__popularity");
+        let selectPopularity = document.createElement("ul");
+        selectPopularity.classList.add("main-sort__select");
 
-        // selectPopularity.addEventListener("focusout", (e) => {
-        //     console.log(e.target);
-        // });
-        let optionEmpty = document.createElement("option");
-        optionEmpty.textContent = "Popularité";
-        optionEmpty.style.display = "none";
-        selectPopularity.appendChild(optionEmpty);
+        let liPopularity = document.createElement("li");
+        liPopularity.classList.add("main-sort__select__popularity");
+        liPopularity.id = "popularity";
+        liPopularity.textContent = "Popularité";
 
-        for (let valueOption of ["Date", "Titre"]) {
-            let selectOption = document.createElement("option");
-            selectOption.classList.add("main-sort__popularity__option");
-            selectOption.value = valueOption;
+        let icon = document.createElement("p");
+        icon.classList.add("main-sort__select__icon");
+        icon.textContent = "<";
+        liPopularity.insertAdjacentElement("beforeend", icon);
+        selectPopularity.appendChild(liPopularity);
+
+        for (let valueOption of ["Titre", "Date"]) {
+            let selectOption = document.createElement("li");
+            selectOption.classList.add("main-sort__select__option");
+            selectOption.id = valueOption.toLowerCase();
             selectOption.textContent = valueOption;
             selectPopularity.appendChild(selectOption);
         }
@@ -124,14 +126,10 @@ export class PhotographerCreate {
 
     photographerMedia(ArrayMediaPhotographer, photographerName) {
         let mediaContainer = document.querySelector(".photographer-media");
-        // let items = ArrayMediaPhotographer.sort((a, b) => {
-        //     return a.image > b.image;
-        // });
-
+        
         ArrayMediaPhotographer.forEach((element) => {
-            console.log(element);
-            let article = document.createElement("article");
-            article.classList.add("photographer-media__container");
+            let figure = document.createElement("figure");
+            figure.classList.add("photographer-media__container");
 
             let imgMedia = document.createElement("img");
             imgMedia.classList.add("photographer-media__img");
@@ -139,15 +137,20 @@ export class PhotographerCreate {
                 photographerName.split(" ")[0]
             }/${element.image}`;
 
-            let containerTitle = document.createElement("div");
+            let containerTitle = document.createElement("figcaption");
             containerTitle.classList.add("photographer-media__container-title");
             let title = document.createElement("p");
             title.classList.add("photographer-media__title");
             title.textContent = element.title;
 
             let divHeart = document.createElement("div");
-            let heart = document.createElement("img");
+            divHeart.classList.add("photographer-media__div-heart");
+            let heart = document.createElement("p");
+            heart.classList.add("photographer-media__heart");
+            heart.innerHTML = '<i class="heart fa-solid fa-heart"></i>';
+
             let nbLike = document.createElement("p");
+            nbLike.classList.add("nb-like");
             nbLike.textContent = element.likes;
 
             divHeart.appendChild(nbLike);
@@ -156,9 +159,55 @@ export class PhotographerCreate {
             containerTitle.appendChild(title);
             containerTitle.appendChild(divHeart);
 
-            article.appendChild(imgMedia);
-            article.appendChild(containerTitle);
-            mediaContainer.appendChild(article);
+            figure.appendChild(imgMedia);
+            figure.appendChild(containerTitle);
+            mediaContainer.appendChild(figure);
         });
+    }
+
+    incrementlike() {
+        let hearts = document.querySelectorAll(".heart");
+        for (let heart of hearts) {
+            let limiteLike = 0;
+            heart.addEventListener("click", (event) => {
+                let nbLike = parseInt(
+                    event.target.parentNode.parentNode.firstChild.textContent
+                );
+                if (nbLike != limiteLike) {
+                    limiteLike = nbLike + 1;
+                    event.target.parentNode.parentNode.firstChild.textContent =
+                        nbLike + 1;
+                }
+                let deleteDisplayPriceByDay =
+                    document.querySelector(".price-day");
+
+                deleteDisplayPriceByDay.remove();
+                this.priceByday();
+            });
+        }
+    }
+
+    priceByday() {
+        let pageMain = document.getElementById("main");
+        let divPriceBydayContainer = document.createElement("div");
+        divPriceBydayContainer.classList.add("price-day");
+
+        let totalLike = 0;
+
+        let getAllLike = document.querySelectorAll(".nb-like");
+        getAllLike.forEach((plike) => {
+            totalLike += parseInt(plike.textContent);
+        });
+
+        let pTotalLike = document.createElement("p");
+        pTotalLike.innerHTML = `${totalLike} <i class="heart fa-solid fa-heart"></i>`;
+
+        let pPriceByDay = document.createElement("p");
+        pPriceByDay.textContent = `${this.#photographer.price}€ / jour`;
+
+        divPriceBydayContainer.appendChild(pTotalLike);
+        divPriceBydayContainer.appendChild(pPriceByDay);
+
+        pageMain.insertAdjacentElement("beforeend", divPriceBydayContainer);
     }
 }

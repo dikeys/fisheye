@@ -3,7 +3,9 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
+        padding: 56px 50px;
         margin: 50.66px 100px;
+        background: #fafafa;
     }
     &__name {
         color: $primary;
@@ -25,7 +27,7 @@
     &__button {
         border: none;
         font-size: 20px;
-        margin-left: 127px;
+        margin-left: 112px;
 
         &:hover {
             cursor: pointer;
@@ -47,39 +49,69 @@
     justify-content: start;
     align-items: center;
     margin-left: 97px;
+    position: relative;
     &__text {
         font-size: 18px;
     }
-    &__popularity {
+    &__select {
+        position: absolute;
+        top: -25px;
+        left: 119px;
         margin-left: 25px;
         color: white;
         background-color: $secondary;
         border: none;
         padding: 10px;
         font-size: 18px;
+        list-style: none;
+        border-radius: 5px;
+        cursor: pointer;
+        &__popularity {
+            padding: 13px 19px 13px 10px;
+        }
+        &__popularity::selection {
+            background: $secondary;
+        }
+        &__select::selection,
+        &__icon::selection,
+        &__option::selection {
+            background: $secondary;
+        }
+
+        &__icon {
+            display: inline-block;
+            transform: rotate(-90deg);
+            font-size: 31px;
+            margin-left: 26px;
+            padding-right: 4px;
+        }
+
+        &__rotate {
+            transform: rotate(90deg);
+        }
         &__option {
             border-top: 1px solid gray;
             background-color: $secondary;
-            &::after {
-                content: "--";
-                display: block;
-                width: 40px;
-                height: 40px;
-                border-top: 1px solid gray;
-                color: green;
-            }
+            border-top: 1px white solid;
+            display: none;
+        }
+        li:not(:first-child) {
+            padding: 24px 60px 14px 20px;
+        }
+        &__option::selection {
+            background: $secondary;
         }
     }
 }
 
 .photographer-media {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     padding: 0 100px;
     margin-top: 58px;
+    justify-content: space-between;
+    gap: 95px;
     &__container {
-        margin-left: 95px;
         margin-bottom: 30px;
         border-radius: 5px;
     }
@@ -97,7 +129,30 @@
         font-size: 24px;
         line-height: 31.25px;
     }
-
-    &__tagline {
+    &__div-heart {
+        display: flex;
+        color: $secondary;
     }
+    &__heart {
+        color: $secondary;
+        margin-left: 6.37px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.price-day {
+    position: fixed;
+    bottom: 0;
+    width: 375px;
+    display: flex;
+    justify-content: space-around;
+    background-color: $primary;
+    font-size: 24px;
+    line-height: 31.25px;
+    padding: 21px 34px 16px 31px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    right: 36px;
 }

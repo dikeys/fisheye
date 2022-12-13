@@ -1,9 +1,10 @@
-//Mettre le code JavaScript lié à la page photographer.html
-//merci
 import { PhotographerApi } from "../Api/PhotographerApi";
-import { Modal } from "../factories/Modal";
+import { LightboxFactories } from "../factories/LightboxFactories";
 import { Photographer } from "../factories/photographer";
 import { PhotographerCreate } from "../factories/PhotographerCreate";
+import * as form from "../utils/form";
+import { Modal } from "../utils/Modal";
+import * as sort from "../utils/sort";
 
 async function init() {
     let urlSearch = new URLSearchParams(document.location.search);
@@ -14,18 +15,37 @@ async function init() {
     let photographerData = await dataFromApiPhotographer.findPhotographerById(
         urlSearch.get("id")
     );
-    let photographer = new Photographer(photographerData);
+    const photographer = new Photographer(photographerData);
     let photographerCreate = new PhotographerCreate(photographer);
     photographerCreate.userProfilInformation();
-    // let modal = new Modal();
-    // modal.modalCreate();
+
+    const btnContact = document.getElementById("contact");
+    const btnClose = document.getElementById("close");
+
+ Modal.displayModal(btnContact);
+    Modal.closeModal(btnClose);
 
     let mediaOfPhotographer =
         await dataFromApiPhotographer.findPhotographerMediaById(
             urlSearch.get("id")
         );
-   
-    photographerCreate.photographerMedia(mediaOfPhotographer, photographerData.name);
+
+    photographerCreate.photographerMedia(
+        mediaOfPhotographer,
+        photographerData.name
+    );
+    sort.displayHiddenSortchoose();
+    // sort.sortByTitle(photographerData, mediaOfPhotographer);
+    sort.sortByTitle(mediaOfPhotographer, photographerData);
+    sort.sortByDate(mediaOfPhotographer, photographerData);
+    // sort.sortByPopularity(mediaOfPhotographer, photographerData);
+    // sort.sortByDate(photographerData, mediaOfPhotographer);
+    photographerCreate.incrementlike();
+    photographerCreate.priceByday();
+    form.validate();
+    const lightboxfactories = new LightboxFactories();
+    lightboxfactories.buildLightbox();
+    lightboxfactories.displayLightbox();
 }
 
 init();

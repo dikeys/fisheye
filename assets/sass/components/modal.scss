@@ -1,22 +1,18 @@
 .modal {
-    &__background {
-        position: absolute;
-        display: none;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        opacity: 0.5;
-        background-color: black;
-        width: 100vw;
-        height: 100vh;
-    }
-    &__content {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 80vw;
-        height: 80vh;
-        color: white;
-    }
+    position: fixed;
+    // display: none;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(196, 196, 196, 0.4);
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#close {
+    cursor: pointer;
 }
