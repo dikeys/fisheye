@@ -1,4 +1,49 @@
-.lightbox{
+.lightbox {
+    &__btnnext,
+    &__btnprev {
+        background: url("../../assets/icons/arrow.svg") center center / 100%
+            100%;
+        width: 57px;
+        height: 49px;
+        top: 50%;
+        color: $primary;
+        right: 14%;
+    }
 
-    
+    &__btnprev {
+        right: auto;
+        left: 14%;
+        transform: rotate(180deg);
+    }
+    &__btnclose {
+        background: url("../../assets/icons/close.svg") center center / 100%
+            100%;
+        right: 14%;
+        width: 57px;
+        height: 42px;
+    }
+    &__img {
+        height: 900px;
+        width: 1050px;
+        object-fit: cover;
+        &__title {
+            display: flex;
+            color: $secondary;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 24px;
+            line-height: 31.25px;
+        }
+    }
+    &__img-container {
+        overflow: hidden;
+        max-height: 48vw;
+    }
+    &__btn {
+        position: fixed;
+        cursor: pointer;
+        text-indent: -30000px;
+        border: none;
+        font-size: 20px;
+    }
 }

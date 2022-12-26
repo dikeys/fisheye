@@ -126,17 +126,36 @@ export class PhotographerCreate {
 
     photographerMedia(ArrayMediaPhotographer, photographerName) {
         let mediaContainer = document.querySelector(".photographer-media");
-        
+
         ArrayMediaPhotographer.forEach((element) => {
             let figure = document.createElement("figure");
             figure.classList.add("photographer-media__container");
 
+            let video = document.createElement("video");
+            video.classList.add("photographer-media__img")
+            let source = document.createElement("source");
+
+            if (element.video != undefined) {
+                source.setAttribute("src", new URL(
+                    `assets/images/media/${photographerName.split(" ")[0]}/${
+                        element.video
+                    }`,
+                    "http://fisheye2/"
+                ));
+                source.setAttribute("type", "video/mp4");
+                video.appendChild(source);
+                figure.appendChild(video);
+            }else{
             let imgMedia = document.createElement("img");
             imgMedia.classList.add("photographer-media__img");
-            imgMedia.src = `../assets/images/media/${
-                photographerName.split(" ")[0]
-            }/${element.image}`;
-
+            imgMedia.src = new URL(
+                `assets/images/media/${photographerName.split(" ")[0]}/${
+                    element.image
+                }`,
+                "http://fisheye2/"
+            );
+            figure.appendChild(imgMedia);
+            }
             let containerTitle = document.createElement("figcaption");
             containerTitle.classList.add("photographer-media__container-title");
             let title = document.createElement("p");
@@ -159,7 +178,6 @@ export class PhotographerCreate {
             containerTitle.appendChild(title);
             containerTitle.appendChild(divHeart);
 
-            figure.appendChild(imgMedia);
             figure.appendChild(containerTitle);
             mediaContainer.appendChild(figure);
         });

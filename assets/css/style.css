@@ -54,6 +54,9 @@ body {
 .btn-m--bg-white {
   background-color: white;
 }
+.btn-m--bg-whiteO {
+  background-color: rgba(196, 196, 196, 0.4);
+}
 .btn-m--rounded-sm {
   border-radius: 5px;
 }
@@ -78,6 +81,9 @@ body {
 .btn-m--color-white {
   color: white;
 }
+.btn-m--color-whiteO {
+  color: rgba(196, 196, 196, 0.4);
+}
 
 .modal {
   position: fixed;
@@ -85,16 +91,74 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(196, 196, 196, 0.4);
   width: 100vw;
   height: 100vh;
   display: none;
   justify-content: center;
   align-items: center;
 }
+.modal--bg-primary {
+  background-color: #d3573c;
+}
+.modal--bg-secondary {
+  background-color: #901c1c;
+}
+.modal--bg-otherText {
+  background-color: #525252;
+}
+.modal--bg-white {
+  background-color: white;
+}
+.modal--bg-whiteO {
+  background-color: rgba(196, 196, 196, 0.4);
+}
 
 #close {
   cursor: pointer;
+}
+
+.lightbox__btnnext, .lightbox__btnprev {
+  background: url("../../assets/icons/arrow.svg") center center/100% 100%;
+  width: 57px;
+  height: 49px;
+  top: 50%;
+  color: #d3573c;
+  right: 14%;
+}
+.lightbox__btnprev {
+  right: auto;
+  left: 14%;
+  transform: rotate(180deg);
+}
+.lightbox__btnclose {
+  background: url("../../assets/icons/close.svg") center center/100% 100%;
+  right: 14%;
+  width: 57px;
+  height: 42px;
+}
+.lightbox__img {
+  height: 900px;
+  width: 1050px;
+  object-fit: cover;
+}
+.lightbox__img__title {
+  display: flex;
+  color: #901c1c;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 24px;
+  line-height: 31.25px;
+}
+.lightbox__img-container {
+  overflow: hidden;
+  max-height: 48vw;
+}
+.lightbox__btn {
+  position: fixed;
+  cursor: pointer;
+  text-indent: -30000px;
+  border: none;
+  font-size: 20px;
 }
 
 .header {
@@ -222,7 +286,7 @@ h1 {
 .profil__button {
   border: none;
   font-size: 20px;
-  margin-left: 112px;
+  margin-left: 5%;
 }
 .profil__button:hover {
   cursor: pointer;

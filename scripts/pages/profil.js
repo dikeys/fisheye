@@ -3,6 +3,7 @@ import { LightboxFactories } from "../factories/LightboxFactories";
 import { Photographer } from "../factories/photographer";
 import { PhotographerCreate } from "../factories/PhotographerCreate";
 import * as form from "../utils/form";
+import { Lightbox } from "../utils/lightbox";
 import { Modal } from "../utils/Modal";
 import * as sort from "../utils/sort";
 
@@ -19,12 +20,6 @@ async function init() {
     let photographerCreate = new PhotographerCreate(photographer);
     photographerCreate.userProfilInformation();
 
-    const btnContact = document.getElementById("contact");
-    const btnClose = document.getElementById("close");
-
- Modal.displayModal(btnContact);
-    Modal.closeModal(btnClose);
-
     let mediaOfPhotographer =
         await dataFromApiPhotographer.findPhotographerMediaById(
             urlSearch.get("id")
@@ -35,17 +30,30 @@ async function init() {
         photographerData.name
     );
     sort.displayHiddenSortchoose();
-    // sort.sortByTitle(photographerData, mediaOfPhotographer);
     sort.sortByTitle(mediaOfPhotographer, photographerData);
     sort.sortByDate(mediaOfPhotographer, photographerData);
-    // sort.sortByPopularity(mediaOfPhotographer, photographerData);
-    // sort.sortByDate(photographerData, mediaOfPhotographer);
+    sort.sortByPopularity(mediaOfPhotographer, photographerData);
     photographerCreate.incrementlike();
     photographerCreate.priceByday();
     form.validate();
     const lightboxfactories = new LightboxFactories();
     lightboxfactories.buildLightbox();
-    lightboxfactories.displayLightbox();
+  
+
+    const btnContact = document.getElementById("contact");
+    const btnClose = document.querySelectorAll(".close");
+
+    Modal.displayModal(btnContact);
+    Modal.closeModal(btnClose);
+    const linksImg = document.querySelectorAll(".photographer-media__img");
+
+    const lightbox = new Lightbox(linksImg);
+    lightbox.displayImage();
+    // const btnnext = document.getElementById("btnnext");
+    const btnPrev = document.getElementById("btnPrev");
+    lightbox.next(btnnext);
+
+    lightbox.prev(btnPrev);
 }
 
 init();

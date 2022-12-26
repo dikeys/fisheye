@@ -5,12 +5,17 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(196, 196, 196, 0.4);
+    
     width: 100vw;
     height: 100vh;
     display: none;
     justify-content: center;
     align-items: center;
+    @each $colour, $hex in $colors {
+        &--bg-#{"" + $colour} {
+            background-color: $hex;
+        }
+    }
 }
 
 #close {

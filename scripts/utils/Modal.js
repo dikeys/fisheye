@@ -7,9 +7,17 @@ export class Modal {
     }
 
     static closeModal(btn) {
-        btn.addEventListener("click", () => {
-            const modal = document.querySelector(".modal");
-            modal.style.display = "none";
+    
+        btn.forEach((btnClose) => {
+            btnClose.addEventListener("click", (event) => {
+                event.target.parentNode.parentNode.parentNode.style.display =
+                    "none";
+            });
         });
+    }
+
+    static closeOnkeyUp(){
+
+
     }
 }
