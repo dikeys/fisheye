@@ -23,7 +23,7 @@
         height: 42px;
     }
     &__img {
-        height: 900px;
+        height: 790px;
         width: 1050px;
         object-fit: cover;
         &__title {
@@ -36,8 +36,10 @@
         }
     }
     &__img-container {
-        overflow: hidden;
-        max-height: 48vw;
+        // overflow: hidden;
+        position: relative;
+        z-index: 400;
+        max-height: 47vw;
     }
     &__btn {
         position: fixed;

@@ -1,7 +1,7 @@
 import { PhotographerApi } from "../Api/PhotographerApi";
 import { LightboxFactories } from "../factories/LightboxFactories";
 import { Photographer } from "../factories/photographer";
-import { PhotographerCreate } from "../factories/PhotographerCreate";
+import { PhotographerFactories } from "../factories/PhotographerFactories";
 import * as form from "../utils/form";
 import { Lightbox } from "../utils/lightbox";
 import { Modal } from "../utils/Modal";
@@ -17,7 +17,7 @@ async function init() {
         urlSearch.get("id")
     );
     const photographer = new Photographer(photographerData);
-    let photographerCreate = new PhotographerCreate(photographer);
+    let photographerCreate = new PhotographerFactories(photographer);
     photographerCreate.userProfilInformation();
 
     let mediaOfPhotographer =
@@ -38,7 +38,6 @@ async function init() {
     form.validate();
     const lightboxfactories = new LightboxFactories();
     lightboxfactories.buildLightbox();
-  
 
     const btnContact = document.getElementById("contact");
     const btnClose = document.querySelectorAll(".close");
@@ -54,6 +53,7 @@ async function init() {
     lightbox.next(btnnext);
 
     lightbox.prev(btnPrev);
+    lightbox.keyDown()
 }
 
 init();

@@ -1,4 +1,4 @@
-import { PhotographerCreate } from "../factories/PhotographerCreate";
+import { PhotographerFactories } from "../factories/PhotographerFactories";
 import { PhotographerApi } from "../Api/PhotographerApi";
 import { Photographer } from "../factories/photographer";
 
@@ -12,7 +12,7 @@ async function init() {
 
     allPhotographers.photographers.forEach((data) => {
         let photographer = new Photographer(data);
-        const photographerFactories = new PhotographerCreate(photographer);
+        const photographerFactories = new PhotographerFactories(photographer);
         photographerSection.appendChild(photographerFactories.getUserCardDOM());
     });
 }

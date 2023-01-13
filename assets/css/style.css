@@ -96,6 +96,7 @@ body {
   display: none;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 .modal--bg-primary {
   background-color: #d3573c;
@@ -137,7 +138,7 @@ body {
   height: 42px;
 }
 .lightbox__img {
-  height: 900px;
+  height: 790px;
   width: 1050px;
   object-fit: cover;
 }
@@ -150,8 +151,9 @@ body {
   line-height: 31.25px;
 }
 .lightbox__img-container {
-  overflow: hidden;
-  max-height: 48vw;
+  position: relative;
+  z-index: 400;
+  max-height: 47vw;
 }
 .lightbox__btn {
   position: fixed;
@@ -325,7 +327,7 @@ h1 {
   cursor: pointer;
 }
 .main-sort__select__popularity {
-  padding: 13px 19px 13px 10px;
+  padding: 13px 32px 13px 10px;
 }
 .main-sort__select__popularity::selection {
   background: #901c1c;
@@ -339,6 +341,12 @@ h1 {
   font-size: 31px;
   margin-left: 26px;
   padding-right: 4px;
+  position: relative;
+  z-index: 1;
+  left: 234px;
+  cursor: pointer;
+  bottom: 11px;
+  color: white;
 }
 .main-sort__select__rotate {
   transform: rotate(90deg);

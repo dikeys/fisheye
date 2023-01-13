@@ -67,7 +67,7 @@
         border-radius: 5px;
         cursor: pointer;
         &__popularity {
-            padding: 13px 19px 13px 10px;
+            padding: 13px 32px 13px 10px;
         }
         &__popularity::selection {
             background: $secondary;
@@ -84,6 +84,12 @@
             font-size: 31px;
             margin-left: 26px;
             padding-right: 4px;
+            position: relative;
+            z-index: 1;
+            left: 234px;
+            cursor: pointer;
+            bottom: 11px;
+            color: white;
         }
 
         &__rotate {

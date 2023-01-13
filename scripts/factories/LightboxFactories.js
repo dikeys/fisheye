@@ -1,6 +1,10 @@
 import { Lightbox } from "../utils/lightbox";
 
 export class LightboxFactories {
+    #link;
+    constructor(link) {
+        this.#link = link;
+    }
     buildLightbox() {
         let lightbox = document.createElement("div");
 
@@ -20,15 +24,15 @@ export class LightboxFactories {
         btnNext.textContent = "Suivant";
 
         let figure = document.createElement("figure");
-        figure.classList.add("lightbox__img-container")
+        figure.classList.add("lightbox__img-container");
         figure.innerHTML = "";
         let img = document.createElement("img");
-        img.classList.add("lightbox__img")
+        img.classList.add("lightbox__img");
         img.id = "imglightbox";
-        let figcaption = document.createElement("figcaption")
-        figcaption.classList.add("lightbox__img__title", "lightbox__img-title")
+        let figcaption = document.createElement("figcaption");
+        figcaption.classList.add("lightbox__img__title", "lightbox__img-title");
         figure.appendChild(img);
-        figure.appendChild(figcaption)
+        figure.appendChild(figcaption);
         header.appendChild(btnNext);
         header.appendChild(btnPrevious);
 

@@ -1,4 +1,4 @@
-export class PhotographerCreate {
+export class PhotographerFactories {
     #photographer;
     #totalLike;
 
@@ -93,13 +93,14 @@ export class PhotographerCreate {
 
         let liPopularity = document.createElement("li");
         liPopularity.classList.add("main-sort__select__popularity");
-        liPopularity.id = "popularity";
         liPopularity.textContent = "Popularité";
-
+        liPopularity.id = "popularity";
         let icon = document.createElement("p");
         icon.classList.add("main-sort__select__icon");
         icon.textContent = "<";
-        liPopularity.insertAdjacentElement("beforeend", icon);
+        icon.id = "icon";
+
+        divSort.insertAdjacentElement("beforeend", icon);
         selectPopularity.appendChild(liPopularity);
 
         for (let valueOption of ["Titre", "Date"]) {
@@ -132,35 +133,40 @@ export class PhotographerCreate {
             figure.classList.add("photographer-media__container");
 
             let video = document.createElement("video");
-            video.classList.add("photographer-media__img")
+            video.classList.add("photographer-media__img");
             let source = document.createElement("source");
 
             if (element.video != undefined) {
-                source.setAttribute("src", new URL(
-                    `assets/images/media/${photographerName.split(" ")[0]}/${
-                        element.video
-                    }`,
-                    "http://fisheye2/"
-                ));
+                source.setAttribute(
+                    "src",
+                    new URL(
+                        `assets/images/media/${
+                            photographerName.split(" ")[0]
+                        }/${element.video}`,
+                        "http://fisheye2/"
+                    )
+                );
                 source.setAttribute("type", "video/mp4");
+                console.log(source)
                 video.appendChild(source);
                 figure.appendChild(video);
-            }else{
-            let imgMedia = document.createElement("img");
-            imgMedia.classList.add("photographer-media__img");
-            imgMedia.src = new URL(
-                `assets/images/media/${photographerName.split(" ")[0]}/${
-                    element.image
-                }`,
-                "http://fisheye2/"
-            );
-            figure.appendChild(imgMedia);
+            } else {
+                let imgMedia = document.createElement("img");
+                imgMedia.classList.add("photographer-media__img");
+                imgMedia.src = new URL(
+                    `assets/images/media/${photographerName.split(" ")[0]}/${
+                        element.image
+                    }`,
+                    "http://fisheye2/"
+                );
+                imgMedia.alt = element.title
+                figure.appendChild(imgMedia);
             }
             let containerTitle = document.createElement("figcaption");
             containerTitle.classList.add("photographer-media__container-title");
-            let title = document.createElement("p");
-            title.classList.add("photographer-media__title");
-            title.textContent = element.title;
+            let TitleImg = document.createElement("p");
+            TitleImg.classList.add("photographer-media__title");
+            TitleImg.textContent = element.title;
 
             let divHeart = document.createElement("div");
             divHeart.classList.add("photographer-media__div-heart");
@@ -175,7 +181,7 @@ export class PhotographerCreate {
             divHeart.appendChild(nbLike);
             divHeart.appendChild(heart);
 
-            containerTitle.appendChild(title);
+            containerTitle.appendChild(TitleImg);
             containerTitle.appendChild(divHeart);
 
             figure.appendChild(containerTitle);
