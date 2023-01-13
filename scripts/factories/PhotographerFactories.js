@@ -8,6 +8,7 @@ export class PhotographerFactories {
 
     getUserCardDOM() {
         const a = document.createElement("a");
+        a.style.display ="inline-block"
         a.href = `photographer.html?id=${this.#photographer.id}`;
         const article = document.createElement("article");
         article.classList.add("photographer-section__card");
@@ -35,14 +36,14 @@ export class PhotographerFactories {
         const pPrice = document.createElement("p");
         pPrice.classList.add("photographer-section__price");
         pPrice.textContent = `${this.#photographer.price}€/jour`;
-
-        article.appendChild(img);
-        article.appendChild(h2);
+        a.appendChild(img)
+        a.appendChild(h2)
+        article.append(a)
         article.appendChild(pLocation);
         article.appendChild(pTagline);
         article.appendChild(pPrice);
-        a.appendChild(article);
-        return a;
+        
+        return article;
     }
 
     userProfilInformation() {
