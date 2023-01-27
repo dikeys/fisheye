@@ -26,11 +26,6 @@ body {
   display: block !important;
 }
 
-*:focus {
-  border: 1px gray solid;
-  padding: 15px;
-}
-
 /* dm-sans-regular - latin */
 @font-face {
   font-family: "DM Sans";
