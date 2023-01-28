@@ -152,7 +152,7 @@ body {
 }
 .lightbox__img-container {
   position: relative;
-  z-index: 400;
+  z-index: 4;
   max-height: 47vw;
 }
 .lightbox__btn {
@@ -324,6 +324,7 @@ h1 {
   font-size: 18px;
   list-style: none;
   border-radius: 5px;
+  z-index: 1;
   cursor: pointer;
 }
 .main-sort__select__popularity {
@@ -342,7 +343,7 @@ h1 {
   margin-left: 26px;
   padding-right: 4px;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   left: 234px;
   cursor: pointer;
   bottom: 11px;

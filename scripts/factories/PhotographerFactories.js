@@ -96,40 +96,9 @@ export class PhotographerFactories {
         imgUser.alt = `${this.#photographer.name}`;
         imgUser.setAttribute("tabindex", "0");
         imgUser.setAttribute("aria-label", `${this.#photographer.name}`);
-        let divSort = document.createElement("div");
-        divSort.classList.add("main-sort");
-
-        let sortText = document.createElement("h4");
-        sortText.classList.add("main-sort__text");
-        sortText.tabIndex = "0";
-        sortText.textContent = "Trier par :";
-
-        let selectPopularity = document.createElement("ul");
-        selectPopularity.classList.add("main-sort__select");
-
-        let liPopularity = document.createElement("li");
-        liPopularity.classList.add("main-sort__select__popularity");
-        liPopularity.textContent = "Popularité";
-        liPopularity.id = "popularity";
-        let icon = document.createElement("p");
-        icon.classList.add("main-sort__select__icon");
-        icon.textContent = "<";
-        icon.id = "icon";
-
-        divSort.insertAdjacentElement("beforeend", icon);
-        selectPopularity.appendChild(liPopularity);
-
-        for (let valueOption of ["Titre", "Date"]) {
-            let selectOption = document.createElement("li");
-            selectOption.classList.add("main-sort__select__option");
-            selectOption.id = valueOption.toLowerCase();
-            selectOption.textContent = valueOption;
-            selectPopularity.appendChild(selectOption);
-        }
-
         pImgUser.appendChild(imgUser);
-        divSort.appendChild(sortText);
-        divSort.appendChild(selectPopularity);
+
+        let sortElement = this.createSortElement()
 
         divName.appendChild(pName);
         divLocation.appendChild(h3Location);
@@ -140,7 +109,7 @@ export class PhotographerFactories {
         profilSection.appendChild(pImgUser);
 
         mainSection.appendChild(profilSection);
-        mainSection.appendChild(divSort);
+        mainSection.appendChild(sortElement);
     }
 
     photographerMedia(ArrayMediaPhotographer, photographerName) {
@@ -171,12 +140,12 @@ export class PhotographerFactories {
             let heart = document.createElement("p");
             heart.classList.add("photographer-media__heart");
             heart.innerHTML = '<i class="heart fa-solid fa-heart"></i>';
-            heart.tabIndex = "0";
-            heart.ariaLabel = "likes";
+
             let nbLike = document.createElement("p");
             nbLike.classList.add("nb-like");
             nbLike.textContent = element.likes;
-
+            nbLike.tabIndex = "0";
+            nbLike.ariaLabel = "likes";
             divHeart.appendChild(nbLike);
             divHeart.appendChild(heart);
 
@@ -234,5 +203,42 @@ export class PhotographerFactories {
         divPriceBydayContainer.appendChild(pPriceByDay);
 
         pageMain.insertAdjacentElement("beforeend", divPriceBydayContainer);
+    }
+
+    createSortElement() {
+        let divSort = document.createElement("div");
+        divSort.classList.add("main-sort");
+
+        let sortText = document.createElement("h4");
+        sortText.classList.add("main-sort__text");
+        sortText.tabIndex = "0";
+        sortText.textContent = "Trier par :";
+
+        let selectPopularity = document.createElement("ul");
+        selectPopularity.classList.add("main-sort__select");
+
+        let liPopularity = document.createElement("li");
+        liPopularity.classList.add("main-sort__select__popularity");
+        liPopularity.textContent = "Popularité";
+        liPopularity.id = "popularity";
+        let icon = document.createElement("p");
+        icon.classList.add("main-sort__select__icon");
+        icon.textContent = "<";
+        icon.id = "icon";
+
+        divSort.insertAdjacentElement("beforeend", icon);
+        selectPopularity.appendChild(liPopularity);
+
+        for (let valueOption of ["Titre", "Date"]) {
+            let selectOption = document.createElement("li");
+            selectOption.classList.add("main-sort__select__option");
+            selectOption.id = valueOption.toLowerCase();
+            selectOption.textContent = valueOption;
+            selectPopularity.appendChild(selectOption);
+        }
+        divSort.appendChild(sortText);
+        divSort.appendChild(selectPopularity);
+
+        return divSort;
     }
 }
